@@ -24,25 +24,46 @@
 timeObject simpleClock;
 
 
-#define INITAL_HOURS 1
-#define INITAL_MINS 2
-#define INITAL_SECS 43
+#define INITAL_HOURS 0
+#define INITAL_MINS 0
+#define INITAL_SECS 10
 
-#define INITAL_CLOCK_VALUE {2,34,56}
 
-//simpleClock.simpleClockData(0 , 1, 32);    // h.m.s
 
-void setup(){
 
-  simpleClock.countdownBegin(INITAL_HOURS, INITAL_MINS, INITAL_SECS);
+#define PRINT_DELAY 1000
+
+
+#define FORCE_PRINT_CLOCK false
+
+
+void setup() {
+  Serial.begin(115200);
+  delay(100);
+  simpleClock.countdownSetup(INITAL_HOURS, INITAL_MINS, INITAL_SECS);
+
+  simpleClock.countdownStart();
 }
 
 
 
-
-void loop(){
-
+void loop() {
 
 
-  
+  // Call in every loop
+  simpleClock.countdownLoop();
+
+
+
+  // Prints the clock every time seconds change.
+  //Can be forced to print by passing true as an argument
+  simpleClock.countdownPrint(FORCE_PRINT_CLOCK);
+
+  // To Pause the countdown:
+  //  simpleClock.countdownStop();
+
+
+  // To Change time left on countdown Timer:
+  //   simpleClock.countdownSetup(1, 3, 42);
+
 }
