@@ -181,6 +181,7 @@ bool timeObject::timeUpdated() {
 
   if (countdown_master.s != previousSecond) {
     previousSecond = countdown_master.s;
+	time_updated = true;                // Global variable latches true, can be unlatched externally.
     return true;
   } else {
     return false;

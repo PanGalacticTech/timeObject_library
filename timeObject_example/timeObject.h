@@ -49,6 +49,8 @@ class timeObject {
     bool timeUpdated();  //Method to track if time has been updated, can be used to delay printing
 
     // Global Variables
+	
+	bool time_updated;   // global variable set true by function timeUpdate() incase use of global variable is required
 
     char countdownclock_as_char[12];   //
 
