@@ -179,9 +179,11 @@ void timeObject::updateAPIclocks() {     // Method to update different variables
 
 bool timeObject::timeUpdated() {
 
-  if (countdown_master.s != previousSecond) {
+  if (countdown_master.s != previousSecond || countdown_master.m != previousMinute || countdown_master.h != previousHour) {
     previousSecond = countdown_master.s;
-	time_updated = true;                // Global variable latches true, can be unlatched externally.
+	previousMinute = countdown_master.m;
+	previousHour = countdown_master.h;
+	time_updated = true;                // Gltobal variable latches true, can be unlatched externally.
     return true;
   } else {
     return false;

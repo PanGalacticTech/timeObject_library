@@ -101,6 +101,8 @@ class timeObject {
     int32_t initial_countdown_millis;   // countdown input start time is converted to millis
 
     int16_t previousSecond;
+	 int16_t previousMinute;
+	  int16_t previousHour;
     /*
 
         struct complexClockData {
