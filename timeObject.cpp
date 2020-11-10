@@ -151,6 +151,7 @@ void timeObject::millis_to_countdown_clock(int32_t inputMillis) {
     if (tzeroFudge) {
       initial_countdown_millis = initial_countdown_millis - 1000;
       tzeroFudge = false;
+      tzero = true;    // External flag for API
       // Serial.println("FUDGE FACTOR APPLIED");
     }
   }

@@ -49,14 +49,18 @@ class timeObject {
     bool timeUpdated();  //Method to track if time has been updated, can be used to delay printing
 
     // Global Variables
-	
-	bool time_updated;   // global variable set true by function timeUpdate() incase use of global variable is required
+
+    bool time_updated;   // global variable set true by function timeUpdate() incase use of global variable is required
 
     char countdownclock_as_char[12];   //
 
     String countdown_clock_string;
 
     bool tminus = true;        // API can be polled to detect if clock is in t- or t+ mode
+
+    bool tzero = false;      // API to set true if t passes t = 0// Remains true untill unset externally.
+
+    bool t_minus_ten = false;   // API set to true when t = -10 seconds.// Remains true untill unset externally.// NOT YET IMPLEMENTED
 
     bool runCountdown = false;   //
 
@@ -101,8 +105,8 @@ class timeObject {
     int32_t initial_countdown_millis;   // countdown input start time is converted to millis
 
     int16_t previousSecond;
-	 int16_t previousMinute;
-	  int16_t previousHour;
+    int16_t previousMinute;
+    int16_t previousHour;
     /*
 
         struct complexClockData {
